@@ -1,0 +1,28 @@
+import { RANK_TYPE } from "./constants"
+
+type Language = "en"
+type Status = "success"
+type RankType = typeof RANK_TYPE[keyof typeof RANK_TYPE]
+
+
+export interface Params{
+  lang: Language
+  language: Language
+  type: RankType
+}
+
+interface Data {
+  id: number,
+  use: string,
+  win: string,
+  ban: string,
+  avatar: string,
+  name: string
+}
+
+export interface Response{
+  type: RankType
+  status: Status,
+  data: Data[],
+  time:string
+}
