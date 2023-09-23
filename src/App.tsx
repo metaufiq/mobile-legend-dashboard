@@ -1,5 +1,4 @@
 import TierHeroesStatisctics from './pages/TierHeroesStatistics';
-import './App.scss';
 
 function App() {
 

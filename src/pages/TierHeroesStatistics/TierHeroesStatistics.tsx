@@ -20,7 +20,7 @@ const TierHeroesStatisctics = ()=>{
   return (
     <table className={styles['table-hero']}>  
       <thead>
-        <tr>
+        <tr className={styles['table-hero-header']}>
           <th colSpan={2}>Hero</th>
           <th>Win Rate</th>
           <th>Use Rate</th>
@@ -29,7 +29,7 @@ const TierHeroesStatisctics = ()=>{
       </thead>
       <tbody>
         {heroes?.map(({ban, avatar, name, use, win})=>(
-          <tr className={styles['item-hero-background']}>
+          <tr className={styles['item-hero']}>
             <td><img src={avatar} alt="" className={styles['avatar-img']} /></td>
             <td>{name}</td>
             <td>{win}</td>

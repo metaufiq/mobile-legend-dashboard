@@ -7,7 +7,7 @@
   border-image-source: linear-gradient(0deg,#49331f,#ad985e 50%,#f4dabc)
 }
 
-.item-hero-background{
+.item-hero{
   background-image: linear-gradient(0deg,#241d43,#1a0732);
   color: white;
 
@@ -21,4 +21,14 @@
   border-collapse: separate;
   border-spacing: 0 1px;
   width: 100vw;
+}
+
+.table-hero-header{
+  background-color: #171b37;
+  color: white;
+
+  th{
+    padding: 40px;
+    font-size: 20px;
+  }
 }
