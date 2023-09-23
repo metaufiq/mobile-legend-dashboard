@@ -18,16 +18,17 @@ const TierHeroesStatisctics = ()=>{
   }, [])
 
   return (
-    <div>
-      {heroes?.map(({ban, name, use, win})=>(
-        <div>
-          <div>{name}</div>
-          <div>{ban}</div>
-          <div>{use}</div>
-          <div>{win}</div>
-        </div>
+    <table>
+      {heroes?.map(({ban, avatar, name, use, win})=>(
+        <tr>
+          <td><img src={avatar} alt="" /></td>
+          <td>{name}</td>
+          <td>{ban}</td>
+          <td>{use}</td>
+          <td>{win}</td>
+        </tr>
       ))}
-    </div>
+    </table>
   );
 }
 
