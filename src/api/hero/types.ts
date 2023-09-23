@@ -11,7 +11,7 @@ export interface Params{
   type: RankType
 }
 
-interface Data {
+export interface Data {
   id: number,
   use: string,
   win: string,
@@ -23,6 +23,8 @@ interface Data {
 export interface Response{
   type: RankType
   status: Status,
-  data: Data[],
-  time:string
+  data: {
+    data: Data[]
+    time:string
+  },
 }
