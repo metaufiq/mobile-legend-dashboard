@@ -4,12 +4,14 @@ import heroAPI from '../../api/hero';
 import {Data as Hero} from '../../api/hero/types';
 import { RANK_TYPE } from '../../api/hero/constants';
 import styles from './TierHeroesStatistics.module.scss';
+import IconLoading from '../../components/Icons/Loading';
 const TierHeroesStatisctics = ()=>{
 
   const [heroes, setHeroes] = useState<Hero[]>()
+  const [loading, setLoading] = useState<boolean>(true)
   const initHeroes = async ()=>{
     const newHeroes = await heroAPI.getRankData({lang:'en', language: 'en', type: RANK_TYPE.ALL})
-    
+    setLoading(false)
     setHeroes(newHeroes.data.data)
   }
 
@@ -17,6 +19,12 @@ const TierHeroesStatisctics = ()=>{
     initHeroes()
   }, [])
 
+
+  if (loading) return(
+    <div className={styles['loading']}>
+      <IconLoading/>
+    </div>
+  )
   return (
     <table className={styles['table-hero']}>  
       <thead>
