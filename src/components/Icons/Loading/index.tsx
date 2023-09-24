@@ -1,5 +1,5 @@
 import { colors } from '../../../styles/colors'
-import { Props } from './types'
+import { Props } from '../types'
 
 const IconLoading = ({ size = 64, color=colors.primary }: Props) => (
   <svg 
