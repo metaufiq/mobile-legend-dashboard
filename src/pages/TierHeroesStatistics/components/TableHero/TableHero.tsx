@@ -3,11 +3,10 @@ import { useEffect, useState } from 'react';
 import SortUnactivated from '../../../../components/Icons/SortUnactivated';
 import SortAsc from '../../../../components/Icons/SortAsc';
 import SortDesc from '../../../../components/Icons/SortDesc';
-import { Data } from '../../../../api/hero/types';
-import { getPercentageNumber } from '../../utils';
 import styles from './TableHero.module.scss';
 import { Header, HeaderParams, Props, SortBy } from './types';
-import { HEADER_KEY, SORT_STATE } from './constants';
+import { HEADERS, SORT_STATE } from './constants';
+import { getSortedHeroes } from './utils';
 
 
 const _renderHeader = ({setSortBy, sortBy}:HeaderParams)=>
@@ -53,92 +52,18 @@ const TableHero = ({data}:Props)=>{
     if (!sortBy) return
 
     
-    setHeroes(currentHeroes=>{
-      if (!currentHeroes?.length) {
-        return currentHeroes
-      }
-      if (sortBy.state === SORT_STATE.DEFAULT) {
-        return data
-      }
-
-      const sortCondition:{
-        [key in SortBy['key']]: (currentHero: Data, nextHero: Data) => number
-      } = {
-        [HEADER_KEY.HERO]: (currentHero,nextHero)=>{
-          const nextSort:{
-            [key in SortBy['state']]: number
-          }  = {
-            [SORT_STATE.DEFAULT]: 1,
-            [SORT_STATE.ASC]: currentHero.name > nextHero.name ? 1 : -1,
-            [SORT_STATE.DESC]: currentHero.name < nextHero.name? 1 : -1
-          }
-
-          return nextSort[sortBy.state]
-        },
-        [HEADER_KEY.BAN_RATE]: (currentHero,nextHero)=>{
-          const nextSort:{
-            [key in SortBy['state']]: number
-          }  = {
-            [SORT_STATE.DEFAULT]: 1,
-            [SORT_STATE.ASC]: getPercentageNumber(currentHero.ban) > getPercentageNumber(nextHero.name) ? 1 : -1,
-            [SORT_STATE.DESC]: getPercentageNumber(currentHero.ban) < getPercentageNumber(nextHero.ban)? 1 : -1
-          }
-
-          return nextSort[sortBy.state]
-        },
-        [HEADER_KEY.USE_RATE]: (currentHero,nextHero)=>{
-          const nextSort:{
-            [key in SortBy['state']]: number
-          }  = {
-            [SORT_STATE.DEFAULT]: 1,
-            [SORT_STATE.ASC]: getPercentageNumber(currentHero.use) > getPercentageNumber(nextHero.use) ? 1 : -1,
-            [SORT_STATE.DESC]: getPercentageNumber(currentHero.use) < getPercentageNumber(nextHero.use)? 1 : -1
-          }
-
-          return nextSort[sortBy.state]
-        },
-        [HEADER_KEY.WIN_RATE]: (currentHero,nextHero)=>{
-          const nextSort:{
-            [key in SortBy['state']]: number
-          }  = {
-            [SORT_STATE.DEFAULT]: 1,
-            [SORT_STATE.ASC]: getPercentageNumber(currentHero.win) > getPercentageNumber(nextHero.win) ? 1 : -1,
-            [SORT_STATE.DESC]: getPercentageNumber(currentHero.win) < getPercentageNumber(nextHero.win)? 1 : -1
-          }
-
-          return nextSort[sortBy.state]
-        },
-      }
-      
-      return ([] as Data[]).concat(currentHeroes ?? []).sort(sortCondition[sortBy.key])
-    })
+    setHeroes((currentHeroes)=>getSortedHeroes({
+      currentHeroes,
+      originalData: data,
+      sortBy
+    }))
   }, [data, sortBy])
-
-  const headers:Header[] = [
-    {
-      title: 'Hero',
-      colspan: 2,
-      key: HEADER_KEY.HERO
-    },
-    {
-      title: 'Win Rate',
-      key: HEADER_KEY.WIN_RATE
-    },
-    {
-      title: 'Use Rate',
-      key: HEADER_KEY.USE_RATE
-    },
-    {
-      title: 'Ban Rate',
-      key: HEADER_KEY.BAN_RATE
-    }
-  ];
 
   return(
     <table className={styles['table-hero']}>  
       <thead>
         <tr className={styles['table-hero-header']}>
-          {headers.map(_renderHeader({setSortBy, sortBy}))}
+          {HEADERS.map(_renderHeader({setSortBy, sortBy}))}
         </tr>
       </thead>
       <tbody>

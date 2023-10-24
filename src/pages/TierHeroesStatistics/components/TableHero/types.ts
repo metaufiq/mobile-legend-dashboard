@@ -1,4 +1,4 @@
-import { Data as Hero } from '../../../../api/hero/types';
+import { Data, Data as Hero } from '../../../../api/hero/types';
 import { HEADER_KEY, SORT_STATE } from './constants';
 
 export type SortState = typeof SORT_STATE[keyof typeof SORT_STATE]
@@ -24,4 +24,10 @@ export interface SortBy{
 export interface  HeaderParams{
   setSortBy: (sortBy:SortBy)=>void,
   sortBy?: SortBy
+}
+
+export interface GetSortedHeroes{
+  currentHeroes?: Data[],
+  sortBy:SortBy,
+  originalData?: Data[]
 }
