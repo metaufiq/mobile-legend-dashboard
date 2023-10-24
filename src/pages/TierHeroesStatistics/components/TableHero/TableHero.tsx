@@ -54,6 +54,9 @@ const TableHero = ({data}:Props)=>{
 
     
     setHeroes(currentHeroes=>{
+      if (!currentHeroes?.length) {
+        return currentHeroes
+      }
       if (sortBy.state === SORT_STATE.DEFAULT) {
         return data
       }
@@ -106,10 +109,8 @@ const TableHero = ({data}:Props)=>{
           return nextSort[sortBy.state]
         },
       }
-
-
       
-      return currentHeroes?.sort(sortCondition[sortBy.key])
+      return ([] as Data[]).concat(currentHeroes ?? []).sort(sortCondition[sortBy.key])
     })
   }, [data, sortBy])
 
