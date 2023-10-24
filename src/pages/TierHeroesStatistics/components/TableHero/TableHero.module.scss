@@ -1,3 +1,5 @@
+@import '/src/styles';
+
 .avatar-img{
   max-width: 5rem;
   max-height: 5rem;
@@ -30,5 +32,10 @@
   th{
     padding: 40px;
     font-size: 20px;
+    cursor: pointer;
+  }
+  svg{
+    fill: $primary;
+    margin-left: 4px;
   }
 }
