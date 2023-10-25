@@ -30,7 +30,7 @@ export const getSortedHeroes = ({currentHeroes, sortBy, originalData}:GetSortedH
         [key in SortBy['state']]: number
       }  = {
         [SORT_STATE.DEFAULT]: 1,
-        [SORT_STATE.ASC]: getPercentageNumber(currentHero.ban) > getPercentageNumber(nextHero.name) ? 1 : -1,
+        [SORT_STATE.ASC]: getPercentageNumber(currentHero.ban) > getPercentageNumber(nextHero.ban) ? 1 : -1,
         [SORT_STATE.DESC]: getPercentageNumber(currentHero.ban) < getPercentageNumber(nextHero.ban)? 1 : -1
       }
 
