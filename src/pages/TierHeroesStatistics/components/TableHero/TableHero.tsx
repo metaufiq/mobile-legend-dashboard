@@ -7,6 +7,8 @@ import styles from './TableHero.module.scss';
 import { Header, HeaderParams, Props, SortBy } from './types';
 import { HEADERS, SORT_STATE } from './constants';
 import { getSortedHeroes } from './utils';
+import TextInput from '../../../../components/TextInput';
+import IconLoading from '../../../../components/Icons/Loading';
 
 
 const _renderHeader = ({setSortBy, sortBy}:HeaderParams)=>
@@ -40,9 +42,20 @@ const _renderHeader = ({setSortBy, sortBy}:HeaderParams)=>
   )
 }
 
-const TableHero = ({data}:Props)=>{
+const TableHero = ({data, loading}:Props)=>{
   const [heroes, setHeroes] = useState(data);
   const [sortBy, setSortBy] = useState<SortBy>();
+  const [searchInput, setSearchInput] = useState('');
+
+  useEffect(()=>{
+    const filteredResult = data?.filter(hero=>{
+      const input = searchInput.toLowerCase()
+      return hero.name.toLowerCase().includes(input)
+    })
+
+    searchInput ? setHeroes(filteredResult) : setHeroes(data)
+
+  }, [data, searchInput])
 
   useEffect(()=>{
     setHeroes(data)
@@ -59,9 +72,19 @@ const TableHero = ({data}:Props)=>{
     }))
   }, [data, sortBy])
 
+  if (loading) return(
+    <div className={styles['loading']}>
+      <IconLoading/>
+    </div>
+  )
+
   return(
     <table className={styles['table-hero']}>  
+
       <thead>
+        <tr>
+          <TextInput placeholder='hero name' onChange={({currentTarget})=>setSearchInput(currentTarget.value)}/>
+        </tr>
         <tr className={styles['table-hero-header']}>
           {HEADERS.map(_renderHeader({setSortBy, sortBy}))}
         </tr>

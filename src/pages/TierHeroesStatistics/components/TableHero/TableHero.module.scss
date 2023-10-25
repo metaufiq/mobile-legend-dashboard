@@ -39,3 +39,13 @@
     margin-left: 4px;
   }
 }
+
+.loading{
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  svg{
+    animation: rotation 2s infinite linear;
+  }
+}
