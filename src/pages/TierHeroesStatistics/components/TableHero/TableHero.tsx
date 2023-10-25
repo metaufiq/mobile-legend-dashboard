@@ -79,11 +79,13 @@ const TableHero = ({data, loading}:Props)=>{
   )
 
   return(
-    <table className={styles['table-hero']}>  
+    <table className={styles['table-hero']} cellSpacing="0">  
 
-      <thead>
+      <thead className={styles['table-header-container']}>
         <tr>
-          <TextInput placeholder='hero name' onChange={({currentTarget})=>setSearchInput(currentTarget.value)}/>
+          <th colSpan={HEADERS.length+1}>
+            <TextInput placeholder='hero name' onChange={({currentTarget})=>setSearchInput(currentTarget.value)}/>
+          </th>
         </tr>
         <tr className={styles['table-hero-header']}>
           {HEADERS.map(_renderHeader({setSortBy, sortBy}))}
