@@ -9,16 +9,30 @@ import TextInput from '../../components/TextInput';
 import TableHero from './components/TableHero';
 const TierHeroesStatisctics = ()=>{
   const [heroes, setHeroes] = useState<Hero[]>()
+  const [initHeroes, setInitHeroes] = useState<Hero[]>()
   const [loading, setLoading] = useState<boolean>(true)
-  const initHeroes = async ()=>{
-    const newHeroes = await heroAPI.getRankData({lang:'en', language: 'en', type: RANK_TYPE.ALL})
+  const [searchInput, setSearchInput] = useState('')
+  const handleInitHeroes = async ()=>{
+    const {data} = await heroAPI.getRankData({lang:'en', language: 'en', type: RANK_TYPE.ALL})
     setLoading(false)
-    setHeroes(newHeroes.data.data)
+    setInitHeroes(data.data)
+    setHeroes(data.data)
   }
 
   useEffect(()=>{
-    initHeroes()
-  }, [])
+
+    if (!searchInput) {
+      handleInitHeroes()
+      return 
+    }
+    const filteredResult = initHeroes?.filter(hero=>{
+      const input = searchInput.toLowerCase()
+      return hero.name.toLowerCase().includes(input)
+    })
+
+    searchInput ? setHeroes(filteredResult) : handleInitHeroes()
+
+  }, [initHeroes, searchInput])
 
 
   if (loading) return(
@@ -30,7 +44,7 @@ const TierHeroesStatisctics = ()=>{
   return (
     <div>
       <div>
-        <TextInput placeholder='hero name'/>
+        <TextInput placeholder='hero name' onChange={({currentTarget})=>setSearchInput(currentTarget.value)}/>
       </div>
       <TableHero data={heroes}/>
     </div>
