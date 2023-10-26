@@ -83,8 +83,8 @@ const TableHero = ({data, loading}:Props)=>{
 
       <thead className={styles['table-header-container']}>
         <tr>
-          <th colSpan={HEADERS.length+1}>
-            <TextInput placeholder='hero name' onChange={({currentTarget})=>setSearchInput(currentTarget.value)}/>
+          <th colSpan={HEADERS.length+1} className={styles['search-container']}>
+            <TextInput placeholder='search hero name' onChange={({currentTarget})=>setSearchInput(currentTarget.value)}  style={{width:'40%'}}/>
           </th>
         </tr>
         <tr className={styles['table-hero-header']}>

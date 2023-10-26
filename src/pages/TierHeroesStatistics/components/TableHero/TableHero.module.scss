@@ -23,6 +23,14 @@
   position: sticky;
   top: 0;
   right: 0;
+  
+  th{
+    background-color: $background;
+  }
+
+  .search-container{
+    padding: 20px;
+  }
 }
 
 .table-hero{
