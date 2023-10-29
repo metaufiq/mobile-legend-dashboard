@@ -10,7 +10,7 @@ import { getSortedHeroes } from './utils';
 import TextInput from '../../../../components/TextInput';
 import IconLoading from '../../../../components/Icons/Loading';
 import Search from '../../../../components/Icons/Search';
-import Info from '../../../../components/Icons/Info';
+import About from '../../../../components/Icons/About';
 import { colors } from '../../../../styles/colors';
 
 
@@ -95,7 +95,7 @@ const TableHero = ({data, loading}:Props)=>{
                 rightIcon={<Search />}
               />
               <div className={styles['info-container']}>
-                <Info color={colors.primary} size={40}/>
+                <About color={colors.primary} size={42}/>
               </div>
             </div>
           </th>
