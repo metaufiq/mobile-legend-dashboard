@@ -6,7 +6,14 @@
   border-image-slice: 1;
   border-style: solid;
   border-width: 2px;
-  border-image-source: linear-gradient(0deg,#49331f,#ad985e 50%,#f4dabc)
+  border-image-source: linear-gradient(0deg,#49331f,#ad985e 50%,#f4dabc);
+  
+
+  @media screen and (max-width: 800px) {
+    margin-right: 20px;
+    max-width: 3rem;
+    max-height: 3rem;
+  }
 }
 
 .item-hero{
@@ -16,6 +23,10 @@
   td:not(:nth-child(1)):not(:nth-child(2)){
     text-align: center; 
     font-size: 30px;
+
+    @media screen and (max-width: 800px) {
+      font-size: 20px;
+    }
   }
 }
 
@@ -53,7 +64,9 @@
     font-size: 20px;
     cursor: pointer;
     background-color: #171b37;
-
+    @media screen and (max-width: 800px) {
+      font-size: 15px;
+    }
   }
   svg{
     fill: $primary;
