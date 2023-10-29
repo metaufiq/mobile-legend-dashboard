@@ -10,6 +10,8 @@ import { getSortedHeroes } from './utils';
 import TextInput from '../../../../components/TextInput';
 import IconLoading from '../../../../components/Icons/Loading';
 import Search from '../../../../components/Icons/Search';
+import Info from '../../../../components/Icons/Info';
+import { colors } from '../../../../styles/colors';
 
 
 const _renderHeader = ({setSortBy, sortBy}:HeaderParams)=>
@@ -84,13 +86,18 @@ const TableHero = ({data, loading}:Props)=>{
 
       <thead className={styles['table-header-container']}>
         <tr>
-          <th colSpan={HEADERS.length+1} className={styles['search-container']}>
-            <TextInput 
-              placeholder="Search Hero" 
-              onChange={({currentTarget})=>setSearchInput(currentTarget.value)}  
-              className={styles['search-input']}
-              rightIcon={<Search />}
-            />
+          <th colSpan={HEADERS.length+1}>
+            <div className={styles['search-container']}>
+              <TextInput 
+                placeholder="Search Hero" 
+                onChange={({currentTarget})=>setSearchInput(currentTarget.value)}  
+                className={styles['search-input']}
+                rightIcon={<Search />}
+              />
+              <div className={styles['info-container']}>
+                <Info color={colors.primary} size={40}/>
+              </div>
+            </div>
           </th>
         </tr>
         <tr className={styles['table-hero-header']}>
