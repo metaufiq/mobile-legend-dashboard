@@ -1,6 +1,8 @@
+@import '/src/styles';
+
 .input{
   border: 0;
-  :focus{
+  &:focus{
     outline: none;
   }
   width: 100%;
@@ -14,4 +16,7 @@
   flex-direction: row;
   display: flex;
   background-color: white;
+  &:focus-within {
+    border: 2px solid $primary;
+  }
 }

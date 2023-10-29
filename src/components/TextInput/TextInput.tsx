@@ -17,6 +17,7 @@ const TextInput = (props: Props): ReactElement=>{
         onChange={props.onChange}
         className={styles.input}
       />
+      {props.rightIcon && props.rightIcon}
     </div>
   )
 }

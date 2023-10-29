@@ -5,4 +5,5 @@
 
 export const colors = {
   primary: '#ad985e',
+  background: '#150b28'
 } as const

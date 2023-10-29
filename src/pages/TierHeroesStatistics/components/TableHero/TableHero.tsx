@@ -9,6 +9,7 @@ import { HEADERS, SORT_STATE } from './constants';
 import { getSortedHeroes } from './utils';
 import TextInput from '../../../../components/TextInput';
 import IconLoading from '../../../../components/Icons/Loading';
+import Search from '../../../../components/Icons/Search';
 
 
 const _renderHeader = ({setSortBy, sortBy}:HeaderParams)=>
@@ -84,7 +85,12 @@ const TableHero = ({data, loading}:Props)=>{
       <thead className={styles['table-header-container']}>
         <tr>
           <th colSpan={HEADERS.length+1} className={styles['search-container']}>
-            <TextInput placeholder='search hero name' onChange={({currentTarget})=>setSearchInput(currentTarget.value)}  style={{width:'40%'}}/>
+            <TextInput 
+              placeholder='search hero name' 
+              onChange={({currentTarget})=>setSearchInput(currentTarget.value)}  
+              style={{width:'40%'}}
+              rightIcon={<Search />}
+            />
           </th>
         </tr>
         <tr className={styles['table-hero-header']}>
