@@ -10,7 +10,7 @@ import { Props } from "./types";
  */
 const TextInput = (props: Props): ReactElement=>{
   return(
-    <div className={styles.container} style={props.style}>      
+    <div className={`${styles.container} ${props.className}`} style={props.style}>      
       <input
         type={props.type}
         placeholder={props.placeholder}

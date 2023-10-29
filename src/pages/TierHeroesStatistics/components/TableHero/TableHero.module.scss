@@ -33,6 +33,14 @@
   }
 }
 
+.search-input{
+  width:40%;
+  @media screen and (max-width: 600px) {
+    width:80%;
+    margin: auto;
+  }
+}
+
 .table-hero{
   border-collapse: collapse;
   width: 100vw;
