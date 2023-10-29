@@ -2,6 +2,7 @@
 
 .input{
   border: 0;
+  font-size: 20px;
   &:focus{
     outline: none;
   }
@@ -16,6 +17,11 @@
   flex-direction: row;
   display: flex;
   background-color: white;
+  justify-content: center;
+
+  svg{
+    align-self: center;
+  }
   &:focus-within {
     border: 2px solid $primary;
   }
