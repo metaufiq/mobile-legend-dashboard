@@ -4,6 +4,8 @@ import heroAPI from '../../api/hero';
 import {Data as Hero} from '../../api/hero/types';
 import { RANK_TYPE } from '../../api/hero/constants';
 import TableHero from './components/TableHero';
+import AboutModal from './components/AboutModal';
+import styles from './TierHeroesStatistics.module.scss'
 
 const TierHeroesStatisctics = ()=>{
   const [heroes, setHeroes] = useState<Hero[]>()
@@ -20,6 +22,10 @@ const TierHeroesStatisctics = ()=>{
 
   return (
     <div>
+      <AboutModal 
+        isOpen 
+        overlayClassName={styles['modal-overlay']}
+      />
       <TableHero data={heroes} loading={loading}/>
     </div>
   );
