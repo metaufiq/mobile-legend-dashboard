@@ -45,7 +45,7 @@ const _renderHeader = ({setSortBy, sortBy}:HeaderParams)=>
   )
 }
 
-const TableHero = ({data, loading}:Props)=>{
+const TableHero = ({data, loading, handleShowAboutModal}:Props)=>{
   const [heroes, setHeroes] = useState(data);
   const [sortBy, setSortBy] = useState<SortBy>();
   const [searchInput, setSearchInput] = useState('');
@@ -94,7 +94,7 @@ const TableHero = ({data, loading}:Props)=>{
                 className={styles['search-input']}
                 rightIcon={<Search />}
               />
-              <div className={styles['info-container']}>
+              <div className={styles['info-container']} onClick={handleShowAboutModal}>
                 <About color={colors.primary} size={42}/>
               </div>
             </div>

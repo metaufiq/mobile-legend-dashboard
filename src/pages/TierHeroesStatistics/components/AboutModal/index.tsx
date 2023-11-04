@@ -1,9 +1,12 @@
 import ReactModal from "react-modal"
 
-import { Props } from "./types"
 import { colors } from "../../../../styles/colors"
+import Close from "../../../../components/Icons/Close"
+import { Props } from "./types"
+import styles from "./AboutModal.module.scss"
 
-const AboutModal = ({isOpen, overlayClassName}: Props)=>{
+const AboutModal = ({isOpen, overlayClassName, handleClose}: Props)=>{
+  
   return(
     <ReactModal
       isOpen={isOpen}
@@ -20,6 +23,7 @@ const AboutModal = ({isOpen, overlayClassName}: Props)=>{
         }
       }}
     >
+      <div className={styles['close-container']}><div onClick={handleClose}><Close/></div></div>
       <p>the data latest updated on: </p>
       <p>Notes:</p>
       <ol>

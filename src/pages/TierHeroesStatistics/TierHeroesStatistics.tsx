@@ -10,6 +10,7 @@ import styles from './TierHeroesStatistics.module.scss'
 const TierHeroesStatisctics = ()=>{
   const [heroes, setHeroes] = useState<Hero[]>()
   const [loading, setLoading] = useState<boolean>(true)
+  const [showAbouModal, setShowAboutModal] = useState<boolean>(true)
   const handleInitHeroes = useCallback(async ()=>{    
     const {data} = await heroAPI.getRankData({lang:'en', language: 'en', type: RANK_TYPE.ALL})
     setLoading(false)
@@ -23,10 +24,11 @@ const TierHeroesStatisctics = ()=>{
   return (
     <div>
       <AboutModal 
-        isOpen 
+        isOpen={showAbouModal}
         overlayClassName={styles['modal-overlay']}
+        handleClose={()=>setShowAboutModal(false)}
       />
-      <TableHero data={heroes} loading={loading}/>
+      <TableHero data={heroes} loading={loading} handleShowAboutModal={()=>{setShowAboutModal(true)}}/>
     </div>
   );
 }

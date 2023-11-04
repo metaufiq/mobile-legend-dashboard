@@ -7,6 +7,7 @@ export type SortState = typeof SORT_STATE[keyof typeof SORT_STATE]
 export interface Props{
   data?: Hero[]
   loading?: boolean
+  handleShowAboutModal: VoidFunction
 }
 
 export interface Header{
