@@ -61,10 +61,6 @@ const TableHero = ({data, loading, handleShowAboutModal}:Props)=>{
   }, [data, searchInput])
 
   useEffect(()=>{
-    setHeroes(data)
-  }, [data]);
-
-  useEffect(()=>{
     if (!sortBy) return
 
     
