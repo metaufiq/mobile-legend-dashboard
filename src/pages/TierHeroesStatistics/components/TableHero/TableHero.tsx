@@ -1,18 +1,17 @@
 import { useEffect, useState } from 'react';
 
+import { colors } from '../../../../styles/colors';
 import SortUnactivated from '../../../../components/Icons/SortUnactivated';
 import SortAsc from '../../../../components/Icons/SortAsc';
 import SortDesc from '../../../../components/Icons/SortDesc';
-import styles from './TableHero.module.scss';
-import { Header, HeaderParams, Props, SortBy } from './types';
-import { HEADERS, SORT_STATE } from './constants';
-import { getSortedHeroes } from './utils';
 import TextInput from '../../../../components/TextInput';
 import IconLoading from '../../../../components/Icons/Loading';
 import Search from '../../../../components/Icons/Search';
 import About from '../../../../components/Icons/About';
-import { colors } from '../../../../styles/colors';
-
+import { HEADERS, SORT_STATE } from './constants';
+import { getSortedHeroes } from './utils';
+import { Header, HeaderParams, Props, SortBy } from './types';
+import styles from './TableHero.module.scss';
 
 const _renderHeader = ({setSortBy, sortBy}:HeaderParams)=>
 ({title, colspan, key}:Header)=>{
