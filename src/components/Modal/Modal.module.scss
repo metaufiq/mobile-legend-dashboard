@@ -6,3 +6,9 @@
     cursor: pointer;
   }
 }
+
+.overlay{
+  position: fixed;
+  inset: 0px;
+  background-color: rgba(19, 19, 19, 0.48);
+}
