@@ -5,6 +5,7 @@ import { getSortedHeroes } from './utils';
 import { Props, SortBy } from './types';
 import styles from './TableHero.module.scss';
 import Header from './Header';
+import Item from './Item/Item';
 
 const TableHero = ({data, loading, handleShowAboutModal}:Props)=>{
   const [heroes, setHeroes] = useState(data);
@@ -47,15 +48,7 @@ const TableHero = ({data, loading, handleShowAboutModal}:Props)=>{
         sortBy={sortBy}
       />
       <tbody>
-        {heroes?.map(({ban, avatar, name, use, win})=>(
-          <tr className={styles['item-hero']}>
-            <td><img src={avatar} alt="" className={styles['avatar-img']} /></td>
-            <td>{name}</td>
-            <td>{win}</td>
-            <td>{use}</td>
-            <td>{ban}</td>
-          </tr>
-        ))}
+        {heroes?.map(hero=><Item data={hero}/>)}
       </tbody>
     </table>
   )
