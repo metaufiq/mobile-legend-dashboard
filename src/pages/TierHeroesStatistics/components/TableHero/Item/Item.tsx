@@ -1,5 +1,5 @@
 import { Props } from "./types"
-import styles from '../TableHero.module.scss';
+import styles from './Item.module.scss';
 
 const Item = ({data:{
   avatar,
