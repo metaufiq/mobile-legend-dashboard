@@ -1,48 +1,10 @@
 import { useEffect, useState } from 'react';
 
-import { colors } from '../../../../styles/colors';
-import SortUnactivated from '../../../../components/Icons/SortUnactivated';
-import SortAsc from '../../../../components/Icons/SortAsc';
-import SortDesc from '../../../../components/Icons/SortDesc';
-import TextInput from '../../../../components/TextInput';
 import IconLoading from '../../../../components/Icons/Loading';
-import Search from '../../../../components/Icons/Search';
-import About from '../../../../components/Icons/About';
-import { HEADERS, SORT_STATE } from './constants';
 import { getSortedHeroes } from './utils';
-import { Header, HeaderParams, Props, SortBy } from './types';
+import { Props, SortBy } from './types';
 import styles from './TableHero.module.scss';
-
-const _renderHeader = ({setSortBy, sortBy}:HeaderParams)=>
-({title, colspan, key}:Header)=>{
-  const nextState = {
-    [SORT_STATE.DEFAULT]: SORT_STATE.DESC,
-    [SORT_STATE.ASC]: SORT_STATE.DEFAULT,
-    [SORT_STATE.DESC]: SORT_STATE.ASC
-  }
-
-  const handleSort = ()=>{
-    setSortBy({
-      key,
-      state: nextState[sortBy?.state ?? SORT_STATE.DEFAULT]
-    })
-  }
-
-  const icon = {
-    [SORT_STATE.DEFAULT]: <SortUnactivated size={14}/>,
-    [SORT_STATE.ASC]: <SortAsc size={14}/>,
-    [SORT_STATE.DESC]: <SortDesc size={14}/>
-  }
-
-  return (
-    <th colSpan={colspan} key={key} onClick={handleSort}>
-      {title}
-      {
-        icon[sortBy?.state && key===sortBy.key ? sortBy.state  : SORT_STATE.DEFAULT]
-      }
-    </th>
-  )
-}
+import Header from './Header';
 
 const TableHero = ({data, loading, handleShowAboutModal}:Props)=>{
   const [heroes, setHeroes] = useState(data);
@@ -78,27 +40,12 @@ const TableHero = ({data, loading, handleShowAboutModal}:Props)=>{
 
   return(
     <table className={styles['table-hero']} cellSpacing="0">  
-
-      <thead className={styles['table-header-container']}>
-        <tr>
-          <th colSpan={HEADERS.length+1}>
-            <div className={styles['search-container']}>
-              <TextInput 
-                placeholder="Search Hero" 
-                onChange={({currentTarget})=>setSearchInput(currentTarget.value)}  
-                className={styles['search-input']}
-                rightIcon={<Search />}
-              />
-              <div className={styles['info-container']} onClick={handleShowAboutModal}>
-                <About color={colors.primary} size={42}/>
-              </div>
-            </div>
-          </th>
-        </tr>
-        <tr className={styles['table-hero-header']}>
-          {HEADERS.map(_renderHeader({setSortBy, sortBy}))}
-        </tr>
-      </thead>
+      <Header
+        handleShowAboutModal={handleShowAboutModal}
+        onSearch={setSearchInput}
+        onSort={setSortBy}
+        sortBy={sortBy}
+      />
       <tbody>
         {heroes?.map(({ban, avatar, name, use, win})=>(
           <tr className={styles['item-hero']}>

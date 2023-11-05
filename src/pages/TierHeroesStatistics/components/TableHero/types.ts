@@ -23,11 +23,6 @@ export interface SortBy{
   state: SortState
 }
 
-export interface  HeaderParams{
-  setSortBy: (sortBy:SortBy)=>void,
-  sortBy?: SortBy
-}
-
 export interface GetSortedHeroes{
   currentHeroes?: Data[],
   sortBy:SortBy,
