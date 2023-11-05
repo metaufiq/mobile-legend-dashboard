@@ -1,5 +1,3 @@
-import { Header } from "./types"
-
 export const SORT_STATE = {
   ASC: 'ASC',
   DEFAULT: 'DEFAULT',

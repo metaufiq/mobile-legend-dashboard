@@ -2,41 +2,27 @@ import TextInput from "../../../../../components/TextInput";
 import Search from "../../../../../components/Icons/Search";
 import About from "../../../../../components/Icons/About";
 import { colors } from "../../../../../styles/colors";
-import SortUnactivated from "../../../../../components/Icons/SortUnactivated";
-import SortAsc from "../../../../../components/Icons/SortAsc";
-import SortDesc from "../../../../../components/Icons/SortDesc";
 import { Header as HeaderItem } from "../types";
 import { HEADERS, SORT_STATE } from "../constants"
+import { ICON_SORT, NEXT_SORT } from "./constants";
 import styles from './Header.module.scss';
 import { HeaderItemProps, Props } from "./types";
 
 const _renderItem = ({onSort, sortBy}:HeaderItemProps)=>
 ({title, colspan, key}:HeaderItem)=>{
 
-  const nextState = {
-    [SORT_STATE.DEFAULT]: SORT_STATE.DESC,
-    [SORT_STATE.ASC]: SORT_STATE.DEFAULT,
-    [SORT_STATE.DESC]: SORT_STATE.ASC
-  }
-
   const handleSort = ()=>{
     onSort({
       key,
-      state: nextState[sortBy?.state ?? SORT_STATE.DEFAULT]
+      state: NEXT_SORT[sortBy?.state ?? SORT_STATE.DEFAULT]
     })
-  }
-
-  const icon = {
-    [SORT_STATE.DEFAULT]: <SortUnactivated size={14}/>,
-    [SORT_STATE.ASC]: <SortAsc size={14}/>,
-    [SORT_STATE.DESC]: <SortDesc size={14}/>
   }
 
   return (
     <th colSpan={colspan} key={key} onClick={handleSort}>
       {title}
       {
-        icon[sortBy?.state && key===sortBy.key ? sortBy.state  : SORT_STATE.DEFAULT]
+        ICON_SORT[sortBy?.state && key===sortBy.key ? sortBy.state  : SORT_STATE.DEFAULT]
       }
     </th>
   )

@@ -3,7 +3,6 @@ import { HEADER_KEY, SORT_STATE } from './constants';
 
 export type SortState = typeof SORT_STATE[keyof typeof SORT_STATE]
 
-
 export interface Props{
   data?: Hero[]
   loading?: boolean
