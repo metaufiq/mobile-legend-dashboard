@@ -1,0 +1,51 @@
+@import '/src/styles';
+
+.container{
+  position: sticky;
+  top: 0;
+  right: 0;
+  
+  th{
+    background-color: $background;
+  }
+
+  .search-container{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+
+  .info-container{
+    display: flex;
+    cursor: pointer;
+    svg{
+      align-self: center;
+    }
+  }
+}
+
+.search-input{
+  width:40%;
+  display: flex;
+  @media screen and (max-width: 600px) {
+    width:80%;
+    margin: auto;
+  }
+}
+
+.item-container{
+  color: white;
+  th{
+    padding: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #171b37;
+    @media screen and (max-width: 800px) {
+      font-size: 15px;
+    }
+  }
+  svg{
+    fill: $primary;
+    margin-left: 4px;
+  }
+}

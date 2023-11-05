@@ -7,7 +7,7 @@ import SortAsc from "../../../../../components/Icons/SortAsc";
 import SortDesc from "../../../../../components/Icons/SortDesc";
 import { Header as HeaderItem } from "../types";
 import { HEADERS, SORT_STATE } from "../constants"
-import styles from '../TableHero.module.scss';
+import styles from './Header.module.scss';
 import { HeaderItemProps, Props } from "./types";
 
 const _renderItem = ({onSort, sortBy}:HeaderItemProps)=>
@@ -44,7 +44,7 @@ const _renderItem = ({onSort, sortBy}:HeaderItemProps)=>
 
 const Header = ({handleShowAboutModal, onSearch, onSort, sortBy}: Props)=>{
   return(
-    <thead className={styles['table-header-container']}>
+    <thead className={styles['container']}>
       <tr>
         <th colSpan={HEADERS.length+1}>
           <div className={styles['search-container']}>
@@ -60,7 +60,7 @@ const Header = ({handleShowAboutModal, onSearch, onSort, sortBy}: Props)=>{
           </div>
         </th>
       </tr>
-      <tr className={styles['table-hero-header']}>
+      <tr className={styles['item-container']}>
         {HEADERS.map(_renderItem({onSort, sortBy}))}
       </tr>
     </thead>
