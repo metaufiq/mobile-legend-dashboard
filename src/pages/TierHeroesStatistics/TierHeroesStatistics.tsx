@@ -13,11 +13,16 @@ const TierHeroesStatisctics = ()=>{
   const [showAbouModal, setShowAboutModal] = useState<boolean>(false)
   const [updatedAt, setUpdatedAt] = useState<string>()
 
-  const handleInitHeroes = useCallback(async ()=>{    
-    const {data} = await heroAPI.getRankData({lang:'en', language: 'en', type: RANK_TYPE.ALL})
-    setLoading(false)
-    setHeroes(data.data)
-    setUpdatedAt(data.time)
+  const handleInitHeroes = useCallback(async ()=>{
+    try {
+      const {data} = await heroAPI.getRankData({lang:'en', language: 'en', type: RANK_TYPE.ALL})
+      setLoading(false)
+      setHeroes(data.data)
+      setUpdatedAt(data.time)
+    } catch (error) {
+      alert('[FORBIDDED] cannot access this webpage, please contact the administrator')
+      setLoading(false)
+    }    
   }, [])
 
   useEffect(()=>{
