@@ -1,4 +1,4 @@
-import { SortBy } from "../types"
+import { SortBy } from "../../types"
 
 export interface  HeaderItemProps{
   onSort: (sortBy:SortBy)=>void,

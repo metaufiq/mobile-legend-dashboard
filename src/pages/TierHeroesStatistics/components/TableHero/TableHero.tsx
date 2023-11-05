@@ -4,8 +4,8 @@ import IconLoading from '../../../../components/Icons/Loading';
 import { getSortedHeroes } from './utils';
 import { Props, SortBy } from './types';
 import styles from './TableHero.module.scss';
-import Header from './Header';
-import Item from './Item/Item';
+import Header from './components/Header';
+import Item from './components/Item/Item';
 
 const TableHero = ({data, loading, handleShowAboutModal}:Props)=>{
   const [heroes, setHeroes] = useState(data);
