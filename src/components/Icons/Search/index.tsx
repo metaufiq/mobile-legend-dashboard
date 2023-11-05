@@ -1,4 +1,4 @@
-import { colors } from "../../../styles/colors";
+import { colors } from "styles/colors";
 import { Props } from "../types";
 
 const Search = ({color=colors.background, size=24}: Props) => (

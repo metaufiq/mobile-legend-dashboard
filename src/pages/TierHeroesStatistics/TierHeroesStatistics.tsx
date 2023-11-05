@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from 'react';
 
-import heroAPI from '../../api/hero';
-import {Data as Hero} from '../../api/hero/types';
-import { RANK_TYPE } from '../../api/hero/constants';
+import heroAPI from 'api/hero';
+import {Data as Hero} from 'api/hero/types';
+import { RANK_TYPE } from 'api/hero/constants';
 import TableHero from './components/TableHero';
 import AboutModal from './components/AboutModal';
 import styles from './TierHeroesStatistics.module.scss'

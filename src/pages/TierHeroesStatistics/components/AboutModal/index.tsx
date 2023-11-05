@@ -1,7 +1,7 @@
 import { useMemo } from "react"
 
-import { colors } from "../../../../styles/colors"
-import Modal from "../../../../components/Modal"
+import { colors } from "styles/colors"
+import Modal from "components/Modal"
 import { Props } from "./types"
 
 const AboutModal = ({isOpen, handleClose, updatedAt}: Props)=>{

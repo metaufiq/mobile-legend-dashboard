@@ -1,5 +1,5 @@
-import { Data } from "../../../../api/hero/types"
-import { getPercentageNumber } from "../../utils"
+import { Data } from "api/hero/types"
+import { getPercentageNumber } from "pages/TierHeroesStatistics/utils"
 import { HEADER_KEY, SORT_STATE } from "./constants"
 import { GetSortedHeroes, SortBy } from "./types"
 

@@ -1,4 +1,4 @@
-import { colors } from '../../../styles/colors'
+import { colors } from 'styles/colors'
 import { Props } from '../types'
 
 const IconLoading = ({ size = 64, color=colors.primary }: Props) => (

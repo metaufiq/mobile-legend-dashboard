@@ -1,4 +1,4 @@
-import { Data, Data as Hero } from '../../../../api/hero/types';
+import { Data, Data as Hero } from 'api/hero/types';
 import { HEADER_KEY, SORT_STATE } from './constants';
 
 export type SortState = typeof SORT_STATE[keyof typeof SORT_STATE]

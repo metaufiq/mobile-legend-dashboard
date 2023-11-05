@@ -1,6 +1,6 @@
-import SortAsc from "../../../../../../components/Icons/SortAsc";
-import SortDesc from "../../../../../../components/Icons/SortDesc";
-import SortUnactivated from "../../../../../../components/Icons/SortUnactivated";
+import SortAsc from "components/Icons/SortAsc";
+import SortDesc from "components/Icons/SortDesc";
+import SortUnactivated from "components/Icons/SortUnactivated";
 import { SORT_STATE } from "../../constants";
 
 export const NEXT_SORT = {

@@ -1,4 +1,4 @@
-import { colors } from '../../../styles/colors'
+import { colors } from 'styles/colors'
 import { Props } from '../types'
 
 const Close = ({ size = 24, color=colors.primary }: Props) => (

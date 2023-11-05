@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import IconLoading from '../../../../components/Icons/Loading';
+import IconLoading from 'components/Icons/Loading';
 import { getSortedHeroes } from './utils';
 import { Props, SortBy } from './types';
 import styles from './TableHero.module.scss';

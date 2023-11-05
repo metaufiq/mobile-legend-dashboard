@@ -1,7 +1,7 @@
-import TextInput from "../../../../../../components/TextInput";
-import Search from "../../../../../../components/Icons/Search";
-import About from "../../../../../../components/Icons/About";
-import { colors } from "../../../../../../styles/colors";
+import TextInput from "components/TextInput";
+import Search from "components/Icons/Search";
+import About from "components/Icons/About";
+import { colors } from "styles/colors";
 import { HEADERS } from "../../constants"
 import styles from './Header.module.scss';
 import { Props } from "./types";

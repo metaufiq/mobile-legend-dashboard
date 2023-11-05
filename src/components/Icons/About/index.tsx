@@ -1,4 +1,4 @@
-import { colors } from '../../../styles/colors'
+import { colors } from 'styles/colors'
 import { Props } from '../types'
 
 const About = ({ size = 32, color=colors.primary }: Props) => (
