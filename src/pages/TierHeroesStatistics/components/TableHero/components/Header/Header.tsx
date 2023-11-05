@@ -7,7 +7,7 @@ import styles from './Header.module.scss';
 import { Props } from "./types";
 import HeaderItem from "../HeaderItem";
 
-const Header = ({handleShowAboutModal, onSearch, onSort, sortBy}: Props)=>{
+const Header = ({handleShowAboutModal, onSearch, onSort, sortBy}: Props)=>{  
   return(
     <thead className={styles['container']}>
       <tr>
@@ -27,7 +27,13 @@ const Header = ({handleShowAboutModal, onSearch, onSort, sortBy}: Props)=>{
       </tr>
       <tr className={styles['item-container']}>
         {HEADERS.map(header=>(
-          <HeaderItem {...header} onSort={onSort} sortBy={sortBy} />
+          <HeaderItem 
+            {...header} 
+            onSort={onSort}
+            sortBy={sortBy} 
+            sortKey={header.key} 
+            key={header.key}
+          />
         ))}
       </tr>
     </thead>
