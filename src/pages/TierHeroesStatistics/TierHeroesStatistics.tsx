@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 
 import heroAPI from 'api/hero';
 import {Data as Hero} from 'api/hero/types';
-import { RANK_TYPE } from 'api/hero/constants';
+import { DEFAULT_ERROR_MESSAGE, RANK_TYPE } from 'api/hero/constants';
 import TableHero from './components/TableHero';
 import AboutModal from './components/AboutModal';
 import styles from './TierHeroesStatistics.module.scss'
@@ -20,7 +20,7 @@ const TierHeroesStatisctics = ()=>{
       setHeroes(data.data)
       setUpdatedAt(data.time)
     } catch (error) {
-      alert('[FORBIDDED] cannot access this webpage, please contact the administrator')
+      alert(DEFAULT_ERROR_MESSAGE)
       setLoading(false)
     }    
   }, [])
